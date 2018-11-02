@@ -1,0 +1,32 @@
+@import "_reset";
+
+html {
+  font-size: 10px;
+}
+
+.red {
+  color: red;
+}
+// js파일 test class
+.test {
+  font-size: 5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  min-height: 6rem;
+  .logo {
+    background: url("../assets/icons/gwang.svg") no-repeat;
+    min-height: 40px;
+    min-width: 40px;
+    margin-right: 1rem;
+  }
+  .title {
+    font-size: 4rem;
+  }
+}
