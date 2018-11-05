@@ -1,11 +1,38 @@
 import "../style/app.scss";
-function component(el = "div") {
-  let element = document.createElement(el);
+import { $, shuffle } from "./helper.js";
 
-  element.innerHTML = "Let Go !!!";
-  element.classList.add("test");
+// function component(el = "div") {
+//   let element = document.createElement(el);
 
-  return element;
-}
-const wrapper = document.querySelector(".wrapper");
-wrapper.appendChild(component());
+//   element.innerHTML = "Let Go !!!";
+//   element.classList.add("test");
+
+//   return element;
+// }
+// const wrapper = $(".wrapper");
+// wrapper.appendChild(component());
+
+const makeCards = () => {
+  const cards = [];
+  for (let i = 1; i <= 10; i++) {
+    for (let j = 1; j <= 2; j++) {
+      cards.push({ id: `${i}-${j}`, value: i });
+    }
+  }
+  return cards;
+};
+
+const goCards = makeCards();
+
+const cardTemplate = list => list.reduce((ac, { id, value }) => (ac += `<div class="card-${id}">${value}</div>`), ``);
+
+const gameController = {
+  cards: [],
+  init(list) {
+    // this.cards = shuffle(list);
+    this.cards = goCards;
+    $(".cardList").innerHTML = cardTemplate(this.cards);
+  },
+  toss() {}
+};
+gameController.init(goCards);
