@@ -1,5 +1,6 @@
 @import "_reset";
 @import "_cards";
+@import "_players";
 html {
   font-size: 10px;
 }
@@ -8,13 +9,9 @@ html {
   color: red;
 }
 
-// js파일 test class
-.test {
-  font-size: 5rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
+.wrapper {
+  position: relative;
+  min-height: 100vh;
 }
 
 .header {

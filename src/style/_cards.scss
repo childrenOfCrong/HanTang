@@ -16,23 +16,38 @@
   @return -58px + $num * 238 * -1;
 }
 
-.cardList {
+#cardList {
   display: flex;
   flex-wrap: wrap;
-  [class*="card"] {
-    background: url("../assets/images/cards.jpg") no-repeat;
-    margin: 5px;
-    width: 135px;
-    height: 200px;
-    border-radius: 5px;
-    font-size: 2rem;
-  }
-  @for $i from 1 through 10 {
-    @for $j from 1 through 2 {
-      .card-#{$i}-#{$j} {
-        background-position-x: calcCardPosX((($i)-1) * 2 + $j);
-        background-position-y: calcCardPosY((($i)-1) * 2 + $j);
-      }
+}
+
+[class*="card-"] {
+  position: relative;
+  background: url("../assets/images/cards.jpg") no-repeat;
+  margin: 5px;
+  width: 135px;
+  height: 200px;
+  border-radius: 5px;
+  font-size: 2rem;
+}
+
+@for $i from 1 through 10 {
+  @for $j from 1 through 2 {
+    .card-#{$i}-#{$j} {
+      background-position-x: calcCardPosX((($i)-1) * 2 + $j);
+      background-position-y: calcCardPosY((($i)-1) * 2 + $j);
     }
   }
+}
+
+.card-value {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background: #222;
+  color: #fff;
+  border-radius: 50%;
 }

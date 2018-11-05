@@ -1,0 +1,20 @@
+.players {
+  display: flex;
+}
+
+[class*="player-"] {
+  display: flex;
+  position: absolute;
+}
+
+.player-1 {
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.player-2 {
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%) rotate(-90deg);
+}
