@@ -1,4 +1,5 @@
 @import "_reset";
+@import "_cards";
 html {
   font-size: 10px;
 }
@@ -28,50 +29,5 @@ html {
   }
   .title {
     font-size: 4rem;
-  }
-}
-
-$cardInitPosX: -50px;
-$cardInitPosY: -58px;
-$lineCount: 4;
-$count: 0;
-$setCount: 0;
-$totalCount: 1;
-@function calcCardPosX($num) {
-  $num: $num%4;
-  @if $num==1 {
-    @return -50px;
-  } @else if $num==2 {
-    @return -182px;
-  } @else if $num==3 {
-    @return -600px;
-  } @else {
-    @return -736px;
-  }
-}
-
-@function calcCardPosY($num) {
-  $num: floor((($num)-1)/4);
-  @return -58px + $num * 238 * -1;
-}
-
-.cardList {
-  display: flex;
-  flex-wrap: wrap;
-  [class*="card"] {
-    background: url("../assets/images/cards.jpg") no-repeat;
-    margin: 5px;
-    width: 135px;
-    height: 200px;
-    border-radius: 5px;
-    font-size: 2rem;
-  }
-  @for $i from 1 through 10 {
-    @for $j from 1 through 2 {
-      .card-#{$i}-#{$j} {
-        background-position-x: calcCardPosX((($i)-1) * 2 + $j);
-        background-position-y: calcCardPosY((($i)-1) * 2 + $j);
-      }
-    }
   }
 }
