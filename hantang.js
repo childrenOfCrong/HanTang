@@ -36,7 +36,7 @@ function isGwang(arr) {
 // 3. 땡
 function isDdang(arr) {
     if (arr[0][0] === arr[1][0]) {
-        return (Number(arr[0]) / 100) + 8;
+        return [(Number(arr[0]) / 100) + 8, '땡!'];
     }
     return false;
 }
@@ -101,35 +101,33 @@ function isSyeruk(arr) {
     return false;
 }
 
-// //12. 망통
-// function isMangtong(arr) {
-//     if (arr[0][0] === '1' || arr[1][0] === '1') {
-//         if (arr[0][0] === '7' || arr[1][0] === '7') {
-//             return true;
-//         }
-//     }
-//     return false;
-// }
-
 //10 & 11 & 12 갑오 & 끗 & 망통 
 function isGget(arr) {
     let n = (+arr[0][0] + +arr[1][0] + 2).toString();
     let lastNum = n[n.length - 1];
-    let result = (Number(lastNum) / 100) + 1;
-    return result;
+    let result = 0;
+    if(lastNum === '9'){
+        result = (Number(lastNum) / 100) + 1;
+        return [result, '갑오']
+    }
+    if(lastNum === '0'){
+        result = (Number(lastNum) / 100) + 1;
+        return [result, '망~통~~']
+    }
+    result = (Number(lastNum) / 100) + 1;
+    return [result, lastNum+'끗'];
 }
 
 function countScore(arr) {
-    if (isSamPal(arr)) { return 10 }
-    if (isGwang(arr)) { return 9 }
+    if (isSamPal(arr)) { return [10, '삼팔광땡!'] }
+    if (isGwang(arr)) { return [9, '광땡!'] }
     if (isDdang(arr)) { return isDdang(arr) }
-    if (isAli(arr)) { return 7 }
-    if (isDoksa(arr)) { return 6 }
-    if (isGubbing(arr)) { return 5 }
-    if (isJangbbing(arr)) { return 4 }
-    if (isJangsa(arr)) { return 3 }
-    if (isSyeruk(arr)) { return 2 }
-    // if (isMangtong(arr)) { return 1 }
+    if (isAli(arr)) { return [7, '알리알리알라숑'] }
+    if (isDoksa(arr)) { return [6, '독사'] }
+    if (isGubbing(arr)) { return [5, '구삥'] }
+    if (isJangbbing(arr)) { return [4, '장삥'] }
+    if (isJangsa(arr)) { return [3, '장사'] }
+    if (isSyeruk(arr)) { return [2, '세륙'] }
     return isGget(arr);
 }
 
@@ -138,10 +136,10 @@ function startGame() {
     let playerB = getCards(cards);
     let resultA = countScore(playerA);
     let resultB = countScore(playerB);
-    console.log(`A ${resultA} : B ${resultB}`)
-    if (resultA > resultB) { console.log('플레이어A 승') }
-    else if (resultA < resultB) { console.log('플레이어B 승') }
-    else if (resultA === resultB) { console.log('동점') }
+    console.log(`A ${resultA[1]} : B ${resultB[1]}`)
+    if (resultA[0] > resultB[0]) { console.log('플레이어A 승') }
+    else if (resultA[0] < resultB[0]) { console.log('플레이어B 승') }
+    else if (resultA[0] === resultB[0]) { console.log('동점') }
 }
 
 startGame()
