@@ -6,11 +6,16 @@ export const cardTemplate = list =>
   </div>`),
     ``
   );
-
+const scoreTemplate = playerNumber => `<div data-player="${playerNumber}" class="scoreBox"></div>`;
 export const playerCardTemplate = list =>
   list.reduce(
     (ac, c, ci) =>
-      (ac += `<li class="player-${ci + 1}">${cardTemplate(c)}
+      (ac += `
+  <li class="player-${ci + 1}">
+    <div class="cardSet">${cardTemplate(c)}</div>
+    ${scoreTemplate(ci + 1)}
   </li>`),
     ``
   );
+
+export const winnerTemplate = winner => `<div class="winner">Winner is ${winner}</div>`;

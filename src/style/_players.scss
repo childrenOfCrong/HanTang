@@ -5,6 +5,19 @@
 [class*="player-"] {
   display: flex;
   position: absolute;
+  flex-direction: column;
+}
+.cardSet {
+  display: flex;
+}
+.scoreBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .player-1 {
@@ -14,7 +27,7 @@
 }
 
 .player-2 {
-  top: 50%;
-  right: 2rem;
-  transform: translateY(-50%) rotate(-90deg);
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(-180deg);
 }

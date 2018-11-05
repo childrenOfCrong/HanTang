@@ -1,16 +1,19 @@
 import "../style/app.scss";
-import { cardTemplate, playerCardTemplate } from "./template";
-import { $, shuffle } from "./helper.js";
+import { cardTemplate, playerCardTemplate, winnerTemplate } from "./template";
+import { $, shuffle, $All } from "./helper.js";
 import scoreHelper from "./scoreHelper";
-import CardSet from "./CardSet";
-import CardList from "./Model/CardList";
-import CardListView from "./View/CardListView";
+const makeCards = () => {
+  const cards = [];
+  for (let i = 1; i <= 10; i++) {
+    for (let j = 1; j <= 2; j++) {
+      cards.push({ id: `${i}-${j}`, value: i });
+    }
+  }
+  return cards;
+};
 
-const goCards = new CardList();
-const cardListView = new CardListView({
-  cardListEl: $("#cardList")
-});
-console.dir(goCards);
+const goCards = makeCards();
+
 const gameController = {
   cards: [],
   playersCardSet: [],
@@ -33,6 +36,18 @@ const gameController = {
   },
   toss() {
     return this.playersCardSet;
+  },
+  renderScore(scoreMap) {
+    const playerScoreList = $All(`[data-player]`);
+    playerScoreList.forEach(el => {
+      const playerSocre = scoreMap.get(+el.dataset.player);
+      el.innerText = playerSocre;
+    });
+    const winner = scoreMap.get("winner");
+    this.renderResult(winner);
+  },
+  renderResult(winner) {
+    $(".winnerBox").innerHTML = winnerTemplate(winner);
   }
 };
 
@@ -40,4 +55,5 @@ document.addEventListener("DOMContentLoaded", () => {
   gameController.init(goCards);
   gameController.makePlayerSet();
   scoreHelper.getPlayerCards(gameController.toss());
+  gameController.renderScore(scoreHelper.tossScore());
 });

@@ -13,6 +13,7 @@ const scoreHelper = {
         return this.calcNormalScore(cardSet, playerID);
       }
     });
+    this.setResult();
   },
   isGwangSet(cardSet, playerID) {
     const GwangeSet = new Set(["3-1", "8-1", "1-1"]);
@@ -23,13 +24,27 @@ const scoreHelper = {
   },
   calcDDaengScore(DDaengValue, playerID) {
     this.playerScore.set(playerID, DDaengValue * 100);
-    console.dir(this.playerScore);
   },
   calcNormalScore(cardSet, playerID) {
     let sumScore = cardSet.reduce((ac, c) => (ac += c.value), 0);
     sumScore %= 10;
     this.playerScore.set(playerID, sumScore);
-    console.dir(this.playerScore);
+  },
+  setResult() {
+    const scoreList = [];
+    [...this.playerScore].forEach(([k, v]) => {
+      scoreList.push(v);
+    });
+    const checkDrawer = new Set(scoreList);
+    if (checkDrawer.size === 1) {
+      this.playerScore.set("winner", "draw :ㅇ");
+    } else {
+      const winner = scoreList.indexOf(Math.max(...scoreList));
+      this.playerScore.set("winner", winner + 1);
+    }
+  },
+  tossScore() {
+    return this.playerScore;
   }
 };
 
