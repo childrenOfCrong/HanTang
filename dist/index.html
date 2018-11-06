@@ -36,19 +36,43 @@
             <img src="" alt="">
             <img src="" alt=""> 
           -->
+            <!--moneyImage같이 찾아보기 !   -->
+            <!-- 
+            playersMockData만들어서  
+            playersRendering 
+            call Die에 따라 card show 
+            80% ->pcUser callDie넘겨주기 
+            각 player에 callDie 받아서
+          -->
           </div>
           <div class="socre"></div>
         </div>
       </div>
     </section>
     <div class="betContainer">
-      <!-- 시작이 되면 판돈 3냥 추가  -->
+      <div class="moneyContainer">
+        <img class="money" src="" alt="냥 이미지">
+      </div>
+      <div class="moneyTextContainer">
+        <span>판돈</span>
+      </div>
+      <!--moneyContainer 여러개 쌓이는 구조  -->
+      <div class="selectorContainer">
+        <button class="call">Call</button>
+        <button class="die">Die</button>
+      </div>
+      <!-- 
+        시작이 되면 판돈 3냥 추가  
+        CrongModel에게 판돈 추가하라고 추가 
+      -->
     </div>
     <!-- 가운데 click되면 모델에 알리고 hide -->
     <button>Start</button>
-    <div class="winnerBox"></div>
-  </div>
-  <script src="./bundle.js"></script>
+    <div class="scoreTable">
+      <!-- asset에 socreTable.js -> 정적 렌더링 DomLoad되면 실행하도록 -->
+      <div class="winnerBox"></div>
+    </div>
+    <script src="./bundle.js"></script>
 </body>
 
 </html>
