@@ -50,12 +50,7 @@ module.exports = (env, options) => {
           test: /\.html$/,
           use: ["html-loader"]
         }
-      ],
-      htmlLoader: {
-        ignoreCustomFragments: [/\{\{.*?}}/],
-        root: path.resolve(__dirname, "assets"),
-        attrs: ["img:src", "link:href"]
-      }
+      ]
     }
   };
   if (options.mode === "development") {
