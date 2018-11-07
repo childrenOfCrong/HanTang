@@ -11,17 +11,12 @@
 
 <body>
   <div class="container">
-    <!-- <section class="header">
-      <img class="logo"></img>
-      <h1 class="title">HanTang :D </h1>
-    </section> -->
-    <!-- <ul id="cardList">
-//0123
+    <!--  
 0 user
 1 pc
 2 pc
 3 crong
-    </ul> -->
+ -->
     <section class="players">
       <div class="player-0">
         <div class="userInfo">
@@ -45,7 +40,7 @@
             각 player에 callDie 받아서
           -->
           </div>
-          <div class="socre"></div>
+          <div class="score"></div>
         </div>
       </div>
     </section>
@@ -54,7 +49,8 @@
         <img class="money" src="" alt="냥 이미지">
       </div>
       <div class="moneyTextContainer">
-        <span>판돈</span>
+        <span>판돈:</span>
+        <span class="moneyText">0냥</span>
       </div>
       <!--moneyContainer 여러개 쌓이는 구조  -->
       <div class="selectorContainer">
@@ -67,10 +63,10 @@
       -->
     </div>
     <!-- 가운데 click되면 모델에 알리고 hide -->
-    <button>Start</button>
+    <button class="startButton">Start</button>
     <div class="scoreTable">
       <!-- asset에 socreTable.js -> 정적 렌더링 DomLoad되면 실행하도록 -->
-      <div class="winnerBox"></div>
+
     </div>
     <script src="./bundle.js"></script>
 </body>

@@ -1,5 +1,5 @@
 import template from "template";
-class PlayerView {
+class BetContainerView {
   construcotr() {
     this.playersEl.innerHTML = this.render();
   }

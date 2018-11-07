@@ -1,12 +1,18 @@
 @import "_reset";
 @import "_cards";
 @import "_players";
+@import "_betContainer";
 html {
   font-size: 10px;
 }
 
-.red {
-  color: red;
+.hide {
+  display: none;
+}
+
+.startButton {
+  min-width: 4rem;
+  padding: 2rem;
 }
 
 .wrapper {
