@@ -6,9 +6,19 @@
   display: flex;
   position: absolute;
   flex-direction: column;
+  background: #000;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 1rem;
 }
 .cardSet {
   display: flex;
+  min-width: 20rem;
+  min-height: 10rem;
+  font-size: 2rem;
+  & div {
+    margin: 1rem;
+  }
 }
 .scoreBox {
   display: flex;
@@ -20,14 +30,36 @@
   border-radius: 5px;
 }
 
-.player-1 {
+.player-0 {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
 }
 
+.player-1 {
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+}
+
 .player-2 {
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%) rotate(-180deg);
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  .money {
+    font-size: 2rem;
+  }
+}
+
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  background: #fff;
+  border-radius: 50%;
+  margin-right: 2rem;
 }

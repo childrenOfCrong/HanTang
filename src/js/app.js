@@ -1,24 +1,39 @@
 import "../style/app.scss";
-import { cardTemplate, playerCardTemplate, winnerTemplate } from "./template";
-import Coin from "../assets/icons/coin.png";
 
 import { $, shuffle, $All } from "./helper.js";
-import scoreHelper from "./scoreHelper";
-import makeMockUserList from "./Model/mockModel";
 
-const bindEventHideStartButton = trigger => {
+import makeMockUserList from "./Model/mockModel";
+import PlayerView from "./View/PlayerView";
+import BetContainerView from "./View/BetContainerView";
+
+const user = new PlayerView({
+  player: ".player-0"
+});
+const npc1 = new PlayerView({ player: ".player-1" });
+const npc2 = new PlayerView({ player: ".player-2" });
+const playerViewList = [user, npc1, npc2];
+
+const mockUserList = makeMockUserList();
+
+const bindEventstartButton = handler => {
   $(".startButton").addEventListener("click", e => {
     e.target.classList.add("hide");
-    trigger();
-    // Model에서 넘겨줬다고 가정
-    const mockUserList = makeMockUserList();
+    handler();
   });
 };
 
+const betContainer = new BetContainerView({
+  betEl: ".betContainer",
+  selectorBoxEl: ".selectorContainer"
+});
+
 const gameStart = () => {
-  $(".betContainer").classList.remove("hide");
+  betContainer.show();
+  const mockUserList = makeMockUserList();
+  playerViewList.forEach((v, i) => v.render(mockUserList[i]));
+  betContainer.showSelectorBox();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  bindEventHideStartButton(gameStart);
+  bindEventstartButton(gameStart);
 });

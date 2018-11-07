@@ -1,8 +1,16 @@
-export const cardTemplate = list =>
-  list.reduce(
-    (ac, { id, value }) =>
-      (ac += `<div class="card-${id}">
-    <span class="card-value">${value}</span>
-  </div>`),
-    ``
-  );
+export const playerTemplate = ({ ID, cardSet, profile, gameResult, money, score, status }) =>
+  `
+ <div class="userInfo">
+    <div class="avatar">
+      <div alt="동그란 유저 사진"></div>
+    </div>
+    <div class="money">${money}</div>
+  </div>
+  <div class="cardContainer">
+    <div class="cardSet">
+      <div alt="">${cardSet[0]}</div>
+      <div alt=""></div> 
+    </div>
+    <div class="score"></div>
+  </div>
+ `;

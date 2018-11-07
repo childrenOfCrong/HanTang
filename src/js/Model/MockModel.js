@@ -7,7 +7,7 @@ const makeMockUserList = () => {
     mockUserList.push({
       ID: i,
       profile: `user-${i}`,
-      cardSet: [mockCardSet.pop(), mockCardSet.pop()],
+      cardSet: [mockCardSet.pop()],
       money: 10,
       status: "call",
       gameResult: null,
