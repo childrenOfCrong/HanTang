@@ -1,5 +1,4 @@
 @import "_reset";
-@import "_cards";
 @import "_players";
 @import "_betContainer";
 html {
@@ -10,29 +9,30 @@ html {
   display: none;
 }
 
+.container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
 .startButton {
   min-width: 4rem;
   padding: 2rem;
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  background: #40c057;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
 }
 
 .wrapper {
   position: relative;
   min-height: 100vh;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  min-height: 6rem;
-  .logo {
-    background: url("../assets/icons/gwang.svg") no-repeat;
-    min-height: 40px;
-    min-width: 40px;
-    margin-right: 1rem;
-  }
-  .title {
-    font-size: 4rem;
-  }
 }
 
 .winnerBox {

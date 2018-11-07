@@ -6,6 +6,65 @@
   min-width: 40rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 20rem;
+  background: #495057;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  color: #fff;
+}
+
+.moneyTextContainer,
+.selectorContainer {
+  display: flex;
+}
+
+.moneyContainer {
+  margin-top: 2rem;
+  display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
+  position: relative;
+  min-height: 6rem;
+  .money {
+    position: absolute;
+    background: url("../assets/icons/coin.png") no-repeat;
+    background-size: cover;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.moneyTextContainer {
+  margin: 2rem;
+  font-size: 2rem;
+  .label {
+    margin-right: 10px;
+  }
+}
+
+.selectorContainer {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  button {
+    padding: 1rem;
+    font-size: 2rem;
+    min-width: 4rem;
+    margin-right: 1rem;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .call {
+    background: #51cf66;
+  }
+  .die {
+    background: #f03e3e;
+  }
 }

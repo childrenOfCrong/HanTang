@@ -45,8 +45,17 @@ module.exports = (env, options) => {
             "css-loader",
             "sass-loader"
           ]
+        },
+        {
+          test: /\.html$/,
+          use: ["html-loader"]
         }
-      ]
+      ],
+      htmlLoader: {
+        ignoreCustomFragments: [/\{\{.*?}}/],
+        root: path.resolve(__dirname, "assets"),
+        attrs: ["img:src", "link:href"]
+      }
     }
   };
   if (options.mode === "development") {
