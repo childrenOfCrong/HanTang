@@ -1,5 +1,4 @@
 import "../style/app.scss";
-
 import { $, shuffle, $All } from "./helper.js";
 
 import makeMockUserList from "./Model/mockModel";
@@ -11,7 +10,6 @@ const user = new PlayerView({
 });
 const npc1 = new PlayerView({ player: ".player-1" });
 const npc2 = new PlayerView({ player: ".player-2" });
-const playerViewList = [user, npc1, npc2];
 
 const mockUserList = makeMockUserList();
 
