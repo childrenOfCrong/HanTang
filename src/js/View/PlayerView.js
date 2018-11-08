@@ -1,4 +1,4 @@
-import { playerTemplate } from "./template";
+import { playerTemplate, speechBubbleTemplate } from "./template";
 import { $, validateSelector } from "../helper";
 class PlayerView {
   constructor({ playerEl, ID }) {
@@ -25,11 +25,16 @@ class PlayerView {
     setTimeout(() => {
       const rn = Math.random() * 10;
       const select = rn <= 2 ? "die" : "call";
+      this.showSpeechBubble(select);
       this.emit("SELECT", { select, userID: this.ID });
-    }, 1000);
+    }, 500);
   }
   checkUser() {
     return this.ID === 0;
+  }
+  showSpeechBubble(select) {
+    const speechTemplate = speechBubbleTemplate(select);
+    this.$playerEl.insertAdjacentHTML("beforeend", speechTemplate);
   }
   notifySelect() {
     this.emit("SELECT");
