@@ -4,6 +4,7 @@ class Controller {
     this.view = view;
     view.bindStart(() => this.start());
     view.bindListenDecision(e => this.listenDecision(e));
+    view.playerViewList.notifyAllDecisionSet = this.notifyAllDecisionSet.bind(this);
   }
   init() {
     console.dir(this);
@@ -22,6 +23,9 @@ class Controller {
   }
   render(startInfo) {
     this.view.render(startInfo);
+  }
+  notifyAllDecisionSet(allDesicionList) {
+    this.model.takeDecision(allDesicionList);
   }
 }
 

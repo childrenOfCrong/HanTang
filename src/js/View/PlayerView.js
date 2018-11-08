@@ -15,7 +15,21 @@ class PlayerView {
     return this;
   }
   setDecision() {
-    console.log("실행했다");
+    if (this.checkUser()) return this.handleUserSelect();
+    else return this.handlePcSelect();
+  }
+  handleUserSelect() {
+    console.log("user");
+  }
+  handlePcSelect() {
+    setTimeout(() => {
+      const rn = Math.random() * 10;
+      const select = rn <= 2 ? "die" : "call";
+      this.emit("SELECT", { select, userID: this.ID });
+    }, 1000);
+  }
+  checkUser() {
+    return this.ID === 0;
   }
   notifySelect() {
     this.emit("SELECT");

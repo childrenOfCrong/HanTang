@@ -39,7 +39,9 @@ class Dealer {
     this.players = [];
     this.betMoney = 0;
   }
-
+  takeDecision(allDesicionList) {
+    console.log("model", allDesicionList);
+  }
   generatePlayer() {
     for (let i = 0; i < 3; i++) {
       this.players.push(new Player(i, i));

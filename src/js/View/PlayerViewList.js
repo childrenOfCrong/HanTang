@@ -32,7 +32,10 @@ class PlayerViewList {
   checkAllSet() {
     if (this.decisionList.size === 3) {
       const decisionList = [...this.decisionList];
+      console.dir(decisionList);
+      this.notifyAllDecisionSet(decisionList);
       this.decisionList.clear();
+      console.dir(this.decisionList);
     }
   }
 }
