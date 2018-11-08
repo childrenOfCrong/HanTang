@@ -3,6 +3,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+<<<<<<< HEAD
   perspective: 1000px;
   transform: translate(-50%, -50%);
 }
@@ -10,6 +11,10 @@
 .betContainer {
   transform: rotateX(40deg);
   width: 70rem;
+=======
+  transform: translate(-50%, -50%), rotateX(50%);
+  min-width: 40rem;
+>>>>>>> 4c3a7e00a7a414332983d0759545dfe3dbc83388
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
