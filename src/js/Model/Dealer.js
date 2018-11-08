@@ -39,12 +39,17 @@ class Dealer {
     this.players = [];
     this.betMoney = 0;
   }
+<<<<<<< HEAD
   takeDecision(allDesicionList) {
     console.log("model", allDesicionList);
     allDesicionList.forEach(desicion => {
       this[desicion.select](desicion.userID);
     });
     console.log(this.players, this.betMoney);
+=======
+  takeDecision(decision) {
+    console.log("model", decision);
+>>>>>>> 51955de6efbd37ff18f4f2359964851bd76d00ba
   }
   generatePlayer() {
     for (let i = 0; i < 3; i++) {

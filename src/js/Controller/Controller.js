@@ -20,7 +20,7 @@ class Controller {
     this.notifyDecision(detail);
   }
   notifyDecision(decision) {
-    this.view.notifyDecision(decision);
+    this.model.takeDecision(decision);
   }
   render(startInfo) {
     this.view.render(startInfo);
