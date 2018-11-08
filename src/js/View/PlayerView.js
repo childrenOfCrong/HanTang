@@ -1,5 +1,5 @@
 import { playerTemplate, speechBubbleTemplate } from "./template";
-import { $, validateSelector } from "../helper";
+import { $, $All, validateSelector } from "../helper";
 class PlayerView {
   constructor({ playerEl, ID }) {
     validateSelector(playerEl);
@@ -8,6 +8,12 @@ class PlayerView {
   }
   render(playerInfo) {
     this.$playerEl.innerHTML = playerTemplate(playerInfo);
+  }
+  setCardBackground(cardSet) {
+    const cardELList = [...$All(".card", this.$playerEl)];
+    cardSet.forEach((el, i) => {
+      cardELList[i].style.background = `url(${el.img}) no-repeat`;
+    });
   }
   emit(event, data) {
     const evt = new CustomEvent(event, { detail: data });
