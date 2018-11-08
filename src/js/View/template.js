@@ -12,6 +12,6 @@ export const playerTemplate = ({ Id, cardSet, profile, gameResult, money, score,
     </div>
     <div class="score"></div>
   </div>
- `;
+`;
 
-const cardSetTemplate = list => list.reduce((ac, c) => (ac += `<div class="card">${c}</div>`), ``);
+const cardSetTemplate = list => list.reduce((ac, c) => (ac += `<div class="card">${c.id}</div>`), ``);

@@ -12,6 +12,7 @@ class Controller {
   start() {
     console.log("start!!!");
     const startInfo = this.model.start();
+    console.log(startInfo);
     this.render(startInfo);
   }
   listenDecision({ detail }) {

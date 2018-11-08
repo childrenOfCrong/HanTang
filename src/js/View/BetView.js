@@ -6,9 +6,6 @@ class BetView {
     this.validateSelector(betEl);
     this.$betEl = $(betEl);
   }
-  start() {
-    this.show();
-  }
   show() {
     this.$betEl.classList.remove("hide");
   }

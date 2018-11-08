@@ -15,10 +15,10 @@ class SelectorBoxView {
     this.$selectorBoxEl.addEventListener("click", e => this.handleSelectorClicked(e));
   }
   hide() {
-    this.$selectorBoxEl.classList.add('hide')
+    this.$selectorBoxEl.classList.add("hide");
   }
-  show(){
-    this.$selectorBoxEl.classList.remove('hide')
+  show() {
+    this.$selectorBoxEl.classList.remove("hide");
   }
   emit(event, data) {
     const evt = new CustomEvent(event, { detail: data });

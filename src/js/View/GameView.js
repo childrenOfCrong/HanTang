@@ -8,7 +8,7 @@ class GameView {
     Object.assign(this, { startBtn, betView, selectBoxView, playerViewList });
   }
   bindStart(startHandler) {
-    this.startBtn.start([() => this.betView.start(), startHandler]);
+    this.startBtn.start([() => this.selectBoxView.show(), startHandler]);
   }
   bindListenDecision(listenHandler) {
     this.selectBoxView.$selectorBoxEl.addEventListener("SELECT", e => {
