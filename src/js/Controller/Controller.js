@@ -3,7 +3,7 @@ class Controller {
     this.model = model;
     this.view = view;
     view.bindStart(() => this.start());
-    // view.bindListenDecision(() => this.listenDecision());
+    view.bindListenDecision(e => this.listenDecision(e));
   }
   init() {
     console.dir(this);
@@ -12,6 +12,13 @@ class Controller {
     console.log("start!!!");
     const startInfo = this.model.start();
     this.render(startInfo);
+  }
+  listenDecision({ detail }) {
+    console.log("event Listen");
+    this.notifyDecision(detail);
+  }
+  notifyDecision(decision) {
+    this.view.notifyDecision(decision);
   }
   render(startInfo) {
     this.view.render(startInfo);
