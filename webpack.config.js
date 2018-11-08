@@ -45,6 +45,10 @@ module.exports = (env, options) => {
             "css-loader",
             "sass-loader"
           ]
+        },
+        {
+          test: /\.html$/,
+          use: ["html-loader"]
         }
       ]
     }

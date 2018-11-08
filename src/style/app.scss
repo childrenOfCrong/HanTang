@@ -1,32 +1,54 @@
 @import "_reset";
-
+@import "_players";
+@import "_betContainer";
 html {
   font-size: 10px;
 }
 
-.red {
-  color: red;
+.hide {
+  display: none;
 }
-// js파일 test class
-.test {
-  font-size: 5rem;
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.startButton {
+  min-width: 4rem;
+  padding: 2rem;
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  background: #40c057;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.winnerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%);
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  min-height: 6rem;
-  .logo {
-    background: url("../assets/icons/gwang.svg") no-repeat;
-    min-height: 40px;
-    min-width: 40px;
-    margin-right: 1rem;
-  }
-  .title {
-    font-size: 4rem;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  width: 40rem;
+  height: 20rem;
+  .winner {
+    font-size: 2rem;
+    color: #fff;
   }
 }
