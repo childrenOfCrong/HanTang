@@ -1,15 +1,21 @@
-.betContainer {
+@import "color";
+.perspectiveContainer {
   position: absolute;
   top: 50%;
   left: 50%;
+  perspective: 1000px;
   transform: translate(-50%, -50%);
-  min-width: 40rem;
+}
+
+.betContainer {
+  transform: rotateX(40deg);
+  width: 70rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  min-height: 20rem;
-  background: #495057;
+  height: 40rem;
+  background: $color-table;
   box-sizing: border-box;
   border-radius: 0.5rem;
   color: #fff;
