@@ -13,6 +13,7 @@ class GameView {
   bindListenDecision(listenHandler) {
     this.selectBoxView.$selectorBoxEl.addEventListener("SELECT", e => {
       listenHandler(e);
+      this.playerViewList.showUserSpeechBubble(e);
     });
     [...this.playerViewList.playerList].forEach(player =>
       player.$playerEl.addEventListener("SELECT", e => {

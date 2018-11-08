@@ -1,5 +1,5 @@
-import { playerTemplate } from "./template";
-import { $, validateSelector } from "../helper";
+import { playerTemplate, speechBubbleTemplate } from "./template";
+import { $, $All, validateSelector } from "../helper";
 class PlayerView {
   constructor({ playerEl, ID }) {
     validateSelector(playerEl);
@@ -8,6 +8,16 @@ class PlayerView {
   }
   render(playerInfo) {
     this.$playerEl.innerHTML = playerTemplate(playerInfo);
+  }
+  setCardBackground(cardSet) {
+    const cardELList = [...$All(".card", this.$playerEl)];
+    if (this.ID !== 0) {
+      cardELList.forEach(el => el.classList.add("back"));
+    }
+    cardSet.forEach((el, i) => {
+      cardELList[i].style.background = `url(${el.img}) no-repeat 50% 50%`;
+      cardELList[i].style.backgroundSize = "cover";
+    });
   }
   emit(event, data) {
     const evt = new CustomEvent(event, { detail: data });
@@ -25,11 +35,16 @@ class PlayerView {
     setTimeout(() => {
       const rn = Math.random() * 10;
       const select = rn <= 2 ? "die" : "call";
+      this.showSpeechBubble(select);
       this.emit("SELECT", { select, userID: this.ID });
-    }, 1000);
+    }, 500);
   }
   checkUser() {
     return this.ID === 0;
+  }
+  showSpeechBubble(select) {
+    const speechTemplate = speechBubbleTemplate(select);
+    this.$playerEl.insertAdjacentHTML("beforeend", speechTemplate);
   }
   notifySelect() {
     this.emit("SELECT");

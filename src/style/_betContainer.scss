@@ -25,6 +25,38 @@
 .selectorContainer {
   display: flex;
 }
+.coin{
+  display: inline-block;
+  animation: vibe 1s infinite;
+  margin-left: 100px;
+}
+.one{
+  width:3rem;
+  height:3rem;
+  border: 1px solid #C19D06;
+  border-radius: 50%;
+}
+.bottom{
+  transform: translateY(115%) rotateX(-45deg);
+  transform-origin: 50% 0%;
+  background: #FBCB03;
+}
+.top{
+  transform: rotateX(-45deg);
+  transform-origin: 50% 0%;
+  background: #FBCB03;
+}
+.side{
+  position: absolute;
+  top: 47px;
+  width: 0px;
+  height: 1px;
+  border: 1px solid #C19D06;
+}
+.right{
+  right: 0;
+}
+
 
 .moneyContainer {
   margin-top: 2rem;
@@ -75,5 +107,15 @@
   }
   button:disabled {
     background: #868e96;
+  }
+}
+
+
+@keyframes vibe{
+  30%{
+      transform: rotateZ(10deg);
+  }
+  60%{
+      transform: rotateZ(-10deg);
   }
 }

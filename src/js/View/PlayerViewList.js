@@ -5,9 +5,19 @@ class PlayerViewList {
   }
   render(players) {
     // Issue 어떻게 맞추면 좋을까? 객체이면 더 좋지 않을까?
+
     players.forEach((playerInfo, i) => {
       this.playerList[i].render(playerInfo);
+
+      this.playerList[i].setCardBackground(playerInfo.cardSet);
     });
+  }
+  findUser() {
+    return this.playerList.find(player => player.ID === 0);
+  }
+  showUserSpeechBubble({ detail: { select } }) {
+    const user = this.findUser();
+    user.showSpeechBubble(select);
   }
   addDecision(decision) {
     const { select, userID } = decision;

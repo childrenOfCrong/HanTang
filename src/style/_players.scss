@@ -10,6 +10,8 @@
   color: #fff;
   box-sizing: border-box;
   padding: 1rem;
+  min-width: 20rem;
+  min-height: 25rem;
 }
 .cardSet {
   display: flex;
@@ -34,25 +36,55 @@
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
+  .avatar {
+    background: url(../assets/images/javajigi.jpg) no-repeat;
+    background-size: cover;
+  }
 }
 
 .player-1 {
   top: 50%;
   left: 2rem;
   transform: translateY(-50%);
+  .avatar {
+    background: url(../assets/images/jk.jpg) no-repeat;
+    background-size: cover;
+  }
 }
 
 .player-2 {
   top: 50%;
   right: 2rem;
   transform: translateY(-50%);
+  .avatar {
+    background: url(../assets/images/honux.jpg) no-repeat;
+    background-size: cover;
+  }
 }
 
 .userInfo {
   display: flex;
   align-items: center;
+  .moneyBox {
+    width: 100%;
+    background: #fff;
+    border-radius: 0.5rem;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .moneyPicture {
+    background: url("../assets/icons/coin.png") no-repeat;
+    background-size: cover;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    margin-right: 1rem;
+  }
   .money {
     font-size: 2rem;
+    color: #222;
   }
 }
 
@@ -62,4 +94,66 @@
   background: #fff;
   border-radius: 50%;
   margin-right: 2rem;
+}
+
+.speechBubbleBox {
+  // background: #fff;
+  background: transparent;
+  width: 6rem;
+  position: absolute;
+  z-index: 100;
+  border-radius: 50%;
+  height: 4rem;
+  top: -4rem;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+  }
+  .call {
+    color: #37b24d;
+  }
+  .die {
+    color: #e03131;
+  }
+}
+
+.card {
+  background-size: cover;
+  width: 7rem;
+  height: 10rem;
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    width: 7rem;
+    height: 10rem;
+    background: red;
+    transform: rotateY(90deg);
+    position: absolute;
+    z-index: 1000;
+  }
+}
+.back {
+  &::before {
+    transform: rotateY(0deg);
+  }
+}
+.cardId {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: #fff;
+  background: #000;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
