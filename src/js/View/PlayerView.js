@@ -11,6 +11,9 @@ class PlayerView {
   }
   setCardBackground(cardSet) {
     const cardELList = [...$All(".card", this.$playerEl)];
+    if (this.ID !== 0) {
+      cardELList.forEach(el => el.classList.add("back"));
+    }
     cardSet.forEach((el, i) => {
       cardELList[i].style.background = `url(${el.img}) no-repeat 50% 50%`;
       cardELList[i].style.backgroundSize = "cover";
