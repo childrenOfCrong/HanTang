@@ -9,43 +9,68 @@
   <title>HanTang</title>
 </head>
 
-<body class="body">
-  <header class="header">
-    <img class="logo" src="./logo.jpg"></img>
-    <h1 class="title">HanTang :D </h1>
-  </header>
-  <main class="main">
-    <div class="button" id="button">
-      Start
+<body>
+  <div class="container">
+    <!--  
+0 user
+1 pc
+2 pc
+3 crong
+ -->
+    <section class="players">
+      <div class="player-0">
+        <!-- <div class="userInfo">
+          <div class="avatar">
+            <img src="#" alt="동그란 유저 사진">
+          </div>
+          <div class="money">10냥</div>
+        </div>
+        <div class="cardContainer">
+          <div class="cardSet"> -->
+        <!-- card Image 
+            <img src="" alt="">
+            <img src="" alt=""> 
+          -->
+        <!--moneyImage같이 찾아보기 !   -->
+        <!-- 
+            playersMockData만들어서  
+            playersRendering 
+            call Die에 따라 card show 
+            80% ->pcUser callDie넘겨주기 
+            각 player에 callDie 받아서
+          -->
+      </div>
+      <!-- <div class="score"></div> -->
+  </div>
+  </div>
+  <div class="player-1"></div>
+  <div class="player-2"></div>
+  <div class="crongDealer"></div>
+  </section>
+  <div class="betContainer hide">
+    <div class="moneyContainer">
+      <div class="money"></div>
     </div>
-    <div class="result"></div>
-    <div class="user-wrapper">
-      <div class="user" id="user1">
-        <div class="img-wrapper">
-          <img src="#" alt="">
-          <img src="#" alt="">
-        </div>
-      </div>
-      <div class="user" id="user2">
-        <div class="img-wrapper">
-            <img src="#" alt="">
-            <img src="#" alt="">
-        </div>
-      </div>
-      <div class="user" id="user3">
-        <div class="img-wrapper">
-            <img src="#" alt="">
-            <img src="#" alt="">
-        </div>
-      </div>
-      <div class="user" id="user4">
-        <div class="img-wrapper">
-            <img src="#" alt="">
-            <img src="#" alt="">
-        </div>
-      </div>
+    <div class="moneyTextContainer">
+      <span class="label">판돈:</span>
+      <span class="moneyText">0냥</span>
     </div>
-  </main>
+    <!--moneyContainer 여러개 쌓이는 구조  -->
+    <div class="selectorContainer">
+      <button data-select="call" class="call">콜</button>
+      <button data-select="die" class="die">다이</button>
+    </div>
+    <!-- 
+        시작이 되면 판돈 3냥 추가  
+        CrongModel에게 판돈 추가하라고 추가 
+      -->
+  </div>
+  <!-- 가운데 click되면 모델에 알리고 hide -->
+  <button class="startButton">Start</button>
+  <div class="scoreTable">
+    <!-- asset에 socreTable.js -> 정적 렌더링 DomLoad되면 실행하도록 -->
+
+  </div>
   <script src="./bundle.js"></script>
 </body>
 

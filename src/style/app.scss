@@ -1,114 +1,54 @@
 @import "_reset";
-
-$color-primary: #f9f8ed; // black color
-$color-secondary: #f9f8ed; // white color
-$color-user-wrapper: #6a9c78;
-$color-text-dark: #42291c;
-$color-text-light: #fff1bc;
-
-$width-user: 5rem;
-
-html, body {
-  height: 100%;
-}
-html{
-  font-size: 16px;
-}
-body{
-  background-color: $color-primary;
+@import "_players";
+@import "_betContainer";
+html {
+  font-size: 10px;
 }
 
-.body{
+.hide {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.startButton {
+  min-width: 4rem;
+  padding: 2rem;
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  background: #40c057;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.winnerBox {
   display: flex;
-  flex-direction: column;
-  .header {
-    padding: 1rem 2rem;
-    .logo {
-      display: inline-block;
-      vertical-align: middle;
-      max-width: 5rem;
-      border-radius: 10px;
-    }
-    .title {
-      display: inline-block;
-      padding-left: 1rem;
-      font-size: 2rem;
-      color: $color-text-dark;
-    }
-  }
-  .main{
-    flex: 1;
-    padding: 3rem 2rem;
-    background-color: $color-secondary;
-    .button{
-      font-size: 2rem;
-      cursor: pointer;
-    }
-    .result{
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 9;
-      font-size: 3rem;
-      color: $color-text-light;
-    }
-    .user-wrapper{
-      position: relative;
-      text-align: center;
-      height: 100%;
-      width: 100%;
-      background-color: $color-user-wrapper;
-      .user{
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &:nth-child(1), &:nth-child(4) {
-          width: 20rem;
-          height: 10rem;
-          left: 50%;
-          transform: translateX(-50%);
-        } 
-        &:nth-child(2){
-          width: 15rem;
-          height: 30rem;
-          top: 50%;
-          transform: translateY(-50%);
-          left: 0%;
-        } 
-        &:nth-child(3) {
-          width: 15rem;
-          height: 30rem;
-          top: 50%;
-          transform: translateY(-50%);
-          right: 0;
-        } 
-        &:nth-child(4) {
-          bottom: 0;
-        } 
-        .img-wrapper{
-          img{
-            width: 5rem;
-            height: auto;
-          }
-        }
-      }
-      #user1{
-        .img-wrapper{
-          transform: rotate(180deg);
-        }
-      }
-      #user2{
-        .img-wrapper{
-          transform: rotate(90deg);
-        }
-      }
-      #user3{
-        .img-wrapper{
-          transform: rotate(270deg);
-        }
-      }
-    }
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  width: 40rem;
+  height: 20rem;
+  .winner {
+    font-size: 2rem;
+    color: #fff;
   }
 }
