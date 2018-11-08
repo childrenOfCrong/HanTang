@@ -38,6 +38,7 @@ class Dealer {
     this.cards = [...cards];
     this.players = [];
     this.betMoney = 0;
+    this.bindDecision = null;
   }
   takeDecision(decision) {
     console.log("model", decision);
@@ -110,6 +111,10 @@ class Dealer {
     user.money--;
     user.status = "call";
     this.betMoney++;
+    this.bindDecision({
+      betMoney: this.betMoney,
+      user
+    });
   }
 
   die(n) {

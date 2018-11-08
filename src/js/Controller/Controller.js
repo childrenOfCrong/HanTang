@@ -5,9 +5,13 @@ class Controller {
     view.bindStart(() => this.start());
     view.bindListenDecision(e => this.listenDecision(e));
     view.playerViewList.notifyAllDecisionSet = this.notifyAllDecisionSet.bind(this);
+    model.bindDecision = this.updateView.bind(this);
   }
   init() {
     console.dir(this);
+  }
+  updateView(updateData) {
+    console.log(updateData);
   }
   start() {
     console.log("start!!!");
