@@ -6,21 +6,16 @@
   display: flex;
   position: absolute;
   flex-direction: column;
-  background: #000;
   color: #fff;
   box-sizing: border-box;
   padding: 1rem;
-  min-width: 20rem;
-  min-height: 25rem;
+  width: 18rem;
+  height: 20rem;
+  border-radius: 5px;
 }
 .cardSet {
   display: flex;
-  min-width: 20rem;
-  min-height: 10rem;
   font-size: 2rem;
-  & div {
-    margin: 1rem;
-  }
 }
 .scoreBox {
   display: flex;
@@ -65,14 +60,14 @@
 .userInfo {
   display: flex;
   align-items: center;
+  padding-bottom: 2rem;
   .moneyBox {
-    width: 100%;
-    background: #fff;
-    border-radius: 0.5rem;
-    height: 4rem;
+    flex: 1;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 0.5rem;
+    height: 4rem;
   }
   .moneyPicture {
     background: url("../assets/icons/coin.png") no-repeat;
@@ -125,13 +120,13 @@
 .card {
   background-size: cover;
   width: 7rem;
-  height: 10rem;
+  height: 11.5rem;
   position: relative;
   &::before {
     content: "";
     display: block;
     width: 7rem;
-    height: 10rem;
+    height: 11.5rem;
     background: red;
     transform: rotateY(90deg);
     position: absolute;
