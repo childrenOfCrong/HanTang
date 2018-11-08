@@ -65,8 +65,26 @@
 .userInfo {
   display: flex;
   align-items: center;
+  .moneyBox {
+    width: 100%;
+    background: #fff;
+    border-radius: 0.5rem;
+    height: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .moneyPicture {
+    background: url("../assets/icons/coin.png") no-repeat;
+    background-size: cover;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+    margin-right: 1rem;
+  }
   .money {
     font-size: 2rem;
+    color: #222;
   }
 }
 
