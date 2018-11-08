@@ -122,13 +122,27 @@
   }
 }
 
-[class*="card"] {
+.card {
   background-size: cover;
   width: 7rem;
   height: 10rem;
   position: relative;
+  &::before {
+    content: "";
+    display: block;
+    width: 7rem;
+    height: 10rem;
+    background: red;
+    transform: rotateY(90deg);
+    position: absolute;
+    z-index: 1000;
+  }
 }
-
+.back {
+  &::before {
+    transform: rotateY(0deg);
+  }
+}
 .cardId {
   display: flex;
   justify-content: center;
