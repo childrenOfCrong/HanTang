@@ -52,6 +52,7 @@ class Dealer {
     if (!this.players.length) this.generatePlayer();
     this.betFirst();
     this.shuffle(this.cards);
+
     this.handoutCards(this.cards, this.players);
 
     return {
@@ -95,7 +96,6 @@ class Dealer {
   }
 
   handoutCards(cards, players) {
-    return;
     for (let player of players) {
       if (player.status !== "die") player.cardSet.push(cards.pop());
     }
