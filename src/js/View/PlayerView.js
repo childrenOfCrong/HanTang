@@ -1,21 +1,22 @@
 import { playerTemplate } from "./template";
-import { $ } from "../helper";
+import { $, validateSelector } from "../helper";
 class PlayerView {
-  constructor({ player, ID }) {
-    this.playerEl = $(player);
+  constructor({ playerEl, ID }) {
+    validateSelector(playerEl);
+    this.$playerEl = $(playerEl);
     this.ID = ID;
-    this.init();
   }
-  render(playerData) {
-    this.playerEl.innerHTML = playerTemplate(playerData);
+  render(playerInfo) {
+    this.$playerEl.innerHTML = playerTemplate(playerInfo);
   }
-  init() {}
-  setCallorDie() {
-    if (this.ID === 0) {
-    } else {
-    }
+  emit(event, data) {
+    const evt = new CustomEvent(event, { detail: data });
+    this.$playerEl.dispatchEvent(evt);
+    return this;
   }
-  notifyCallorDie() {}
+  notifySelect() {
+    this.emit("SELECT");
+  }
 }
 
 export default PlayerView;

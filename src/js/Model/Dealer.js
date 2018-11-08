@@ -1,5 +1,37 @@
 import Player from "./Player";
 
+const jokbo = {
+  "46": player =>
+    (player.score = {
+      text: "세륙",
+      value: 10
+    }),
+  "410": player =>
+    (player.score = {
+      text: "장사",
+      value: 11
+    }),
+  "110": player =>
+    (player.score = {
+      text: "장삥",
+      value: 12
+    }),
+  "19": player =>
+    (player.score = {
+      text: "구삥",
+      value: 13
+    }),
+  "14": player =>
+    (player.score = {
+      text: "독사",
+      value: 14
+    }),
+  "12": player =>
+    (player.score = {
+      text: "알리",
+      value: 15
+    })
+};
 class Dealer {
   constructor(cards) {
     this.jokbo = jokbo;
@@ -19,7 +51,11 @@ class Dealer {
     this.betFirst();
     this.shuffle(this.cards);
     this.handoutCards(this.cards, this.players);
-    this.bet();
+    return {
+      players: this.players,
+      betMoney: this.betMoney
+    };
+    // this.bet();
   }
 
   betFirst() {
@@ -56,6 +92,7 @@ class Dealer {
   }
 
   handoutCards(cards, players) {
+    return;
     for (let player of players) {
       if (player.status !== "die") player.cardSet.push(cards.pop());
     }

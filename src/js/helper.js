@@ -9,3 +9,11 @@ export const shuffle = list => {
   }
   return list;
 };
+
+export const validateSelector = selector => {
+  if (typeof selector !== "string" || !selector) throw "invalid selector";
+};
+
+export const validateSearchElement = selector => {
+  if ($(selector) === null) throw "invalid selector";
+};
