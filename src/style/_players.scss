@@ -10,6 +10,8 @@
   color: #fff;
   box-sizing: border-box;
   padding: 1rem;
+  min-width: 20rem;
+  min-height: 25rem;
 }
 .cardSet {
   display: flex;
@@ -34,18 +36,30 @@
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
+  .avatar {
+    background: url(../assets/images/javajigi.jpg) no-repeat;
+    background-size: cover;
+  }
 }
 
 .player-1 {
   top: 50%;
   left: 2rem;
   transform: translateY(-50%);
+  .avatar {
+    background: url(../assets/images/jk.jpg) no-repeat;
+    background-size: cover;
+  }
 }
 
 .player-2 {
   top: 50%;
   right: 2rem;
   transform: translateY(-50%);
+  .avatar {
+    background: url(../assets/images/honux.jpg) no-repeat;
+    background-size: cover;
+  }
 }
 
 .userInfo {
@@ -62,4 +76,30 @@
   background: #fff;
   border-radius: 50%;
   margin-right: 2rem;
+}
+
+.speechBubbleBox {
+  // background: #fff;
+  background: transparent;
+  width: 6rem;
+  position: absolute;
+  z-index: 100;
+  border-radius: 50%;
+  height: 4rem;
+  top: -4rem;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+  }
+  .call {
+    color: #37b24d;
+  }
+  .die {
+    color: #e03131;
+  }
 }
