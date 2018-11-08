@@ -16,7 +16,8 @@ export const playerTemplate = ({ Id, cardSet, profile, gameResult, money, score,
   </div>
 `;
 
-const cardSetTemplate = list => list.reduce((ac, c) => (ac += `<div class="card">${c.id}</div>`), ``);
+const cardSetTemplate = list =>
+  list.reduce((ac, c) => (ac += `<div class="card"><span class="cardId">${c.id}</span></div>`), ``);
 
 export const speechBubbleTemplate = select => `
 <div class="speechBubbleBox">
