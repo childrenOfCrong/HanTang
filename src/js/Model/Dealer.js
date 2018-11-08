@@ -41,6 +41,10 @@ class Dealer {
   }
   takeDecision(allDesicionList) {
     console.log("model", allDesicionList);
+    allDesicionList.forEach(desicion => {
+      this[desicion.select](desicion.userID);
+    });
+    console.log(this.players, this.betMoney);
   }
   generatePlayer() {
     for (let i = 0; i < 3; i++) {
@@ -69,18 +73,18 @@ class Dealer {
     }
   }
 
-  bet() {
-    for (let i = 0; i < 3; i++) {
-      if (this.players[i].status === "die") continue;
-      if (i === 0) {
-        const input = prompt();
-        this[input](i);
-      } else {
-        const randNum = Math.floor(Math.random() * 10 + 1);
-        randNum <= 2 ? this.die(i) : this.call(i);
-      }
-    }
-  }
+  // bet() {
+  //   for (let i = 0; i < 3; i++) {
+  //     if (this.players[i].status === "die") continue;
+  //     if (i === 0) {
+  //       const input = prompt();
+  //       this[input](i);
+  //     } else {
+  //       const randNum = Math.floor(Math.random() * 10 + 1);
+  //       randNum <= 2 ? this.die(i) : this.call(i);
+  //     }
+  //   }
+  // }
 
   shuffle(cards) {
     let newCards = cards;
