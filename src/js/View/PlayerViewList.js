@@ -5,8 +5,10 @@ class PlayerViewList {
   }
   render(players) {
     // Issue 어떻게 맞추면 좋을까? 객체이면 더 좋지 않을까?
+    debugger;
     players.forEach((playerInfo, i) => {
       this.playerList[i].render(playerInfo);
+      this.playerList[i].setCardBackground(playerInfo.cardSet);
     });
   }
   findUser() {
