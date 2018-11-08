@@ -14,8 +14,11 @@ class SelectorBoxView {
   bindEvents() {
     this.$selectorBoxEl.addEventListener("click", e => this.handleSelectorClicked(e));
   }
-  setButtonDisable(disabled = false) {
-    $All("button", this.$selectorBoxEl).forEach(el => (el.disabled = disabled));
+  hide() {
+    this.$selectorBoxEl.classList.add('hide')
+  }
+  show(){
+    this.$selectorBoxEl.classList.remove('hide')
   }
   emit(event, data) {
     const evt = new CustomEvent(event, { detail: data });
@@ -32,7 +35,7 @@ class SelectorBoxView {
     } = target;
     const selectData = { select, userID: 0 };
     this.notifySelect(selectData);
-    this.setButtonDisable(true);
+    this.hide();
   }
 }
 

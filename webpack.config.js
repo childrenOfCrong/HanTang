@@ -14,6 +14,10 @@ module.exports = (env, options) => {
     module: {
       rules: [
         {
+          include: [
+            path.resolve(__dirname, "app/src"),
+            path.resolve(__dirname, "app/test")
+          ],    
           test: /\.css$/,
           use: [
             {
@@ -35,7 +39,7 @@ module.exports = (env, options) => {
         },
         {
           test: /\.(png|svg|jpg|gif)$/,
-          use: ["file-loader"]
+          use: ["file-loader?name=[name].[ent]&outputPath=src/&publicPath=src/"]
         },
         {
           test: /\.scss$/,
