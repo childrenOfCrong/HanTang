@@ -22,15 +22,16 @@ class SelectorBoxView {
     this.$selectorBoxEl.dispatchEvent(evt);
     return this;
   }
-  notifySelect(select) {
-    this.emit("SELECT", select);
+  notifySelect(selectData) {
+    this.emit("SELECT", selectData);
   }
   handleSelectorClicked({ target }) {
     if (target.nodeName !== "BUTTON") return;
     const {
       dataset: { select }
     } = target;
-    this.notifySelect(select);
+    const selectData = { select, userID: 0 };
+    this.notifySelect(selectData);
     this.setButtonDisable(true);
   }
 }

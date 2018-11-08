@@ -14,6 +14,9 @@ class PlayerView {
     this.$playerEl.dispatchEvent(evt);
     return this;
   }
+  setDecision() {
+    console.log("실행했다");
+  }
   notifySelect() {
     this.emit("SELECT");
   }
