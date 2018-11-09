@@ -7,8 +7,17 @@ class GameView {
   constructor({ startBtn, betView, selectBoxView, playerViewList }) {
     Object.assign(this, { startBtn, betView, selectBoxView, playerViewList });
   }
+  addDecision(detail) {
+    this.playerViewList.addDecision(detail);
+  }
   bindStart(startHandler) {
     this.startBtn.start([() => this.selectBoxView.show(), startHandler]);
+  }
+  updateView({ betMoney, user }) {
+    this.betView.render(betMoney);
+    this.playerViewList.updatePlayer(user);
+    //  betMoney: 4
+    //user: Player {id: 0, profile: 0, cardSet: Array(1),
   }
   bindListenDecision(listenHandler) {
     this.selectBoxView.$selectorBoxEl.addEventListener("SELECT", e => {
@@ -27,7 +36,7 @@ class GameView {
     // this.playerView.betMoney()
     this.betView.render(betMoney);
   }
-  notifyDecision(decision) {
+  notifyDecision({ decision }) {
     console.log("decision", decision);
     this.playerViewList.addDecision(decision);
   }

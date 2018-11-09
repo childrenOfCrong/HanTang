@@ -4,14 +4,13 @@ class Controller {
     this.view = view;
     view.bindStart(() => this.start());
     view.bindListenDecision(e => this.listenDecision(e));
-    view.playerViewList.notifyAllDecisionSet = this.notifyAllDecisionSet.bind(this);
     model.bindDecision = this.updateView.bind(this);
   }
   init() {
     console.dir(this);
   }
   updateView(updateData) {
-    console.log(updateData);
+    this.view.updateView(updateData);
   }
   start() {
     console.log("start!!!");
@@ -21,6 +20,7 @@ class Controller {
   }
   listenDecision({ detail }) {
     console.log("event Listen");
+    this.view.addDecision(detail);
     this.notifyDecision(detail);
   }
   notifyDecision(decision) {
@@ -28,9 +28,6 @@ class Controller {
   }
   render(startInfo) {
     this.view.render(startInfo);
-  }
-  notifyAllDecisionSet(allDesicionList) {
-    this.model.takeDecision(allDesicionList);
   }
 }
 
