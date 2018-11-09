@@ -25,18 +25,19 @@ class PlayerViewList {
   }
   addDecision(decision) {
     console.log(decision);
-    const { select, userID } = decision;
+    let { select, userID } = decision;
     this.decisionList.add({ userID, select });
     console.dir(this.decisionList);
-    if (!this.checkAllSet()) return this.gotoOtherDecision(userID);
+    if (!this.checkAllSet()) return this.gotoOtherDecision(++userID);
   }
   gotoOtherDecision(userID) {
-    console.log(userID);
-    const others = [...this.playerList].filter(playerView => playerView.ID !== userID);
-    console.log(others);
-    others.forEach(player => {
-      player.setDecision();
-    });
+    // console.log(userID);
+    // const others = [...this.playerList].filter(playerView => playerView.ID !== userID);
+    // console.log(others);
+    // others.forEach(player => {
+    const player = this.findUser(userID);
+    player.setDecision();
+    // });
   }
   checkAllSet() {
     return this.decisionList.size === 3;

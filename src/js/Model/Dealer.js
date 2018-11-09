@@ -43,8 +43,7 @@ class Dealer {
   takeDecision(decision) {
     debugger;
     console.log("model", decision);
-    const select = decision.select;
-    const userID = decision.userID;
+    const { select, userID } = decision;
 
     this[select](userID);
   }
@@ -53,7 +52,6 @@ class Dealer {
       this.players.push(new Player(i, i));
     }
   }
-
   start() {
     if (!this.players.length) this.generatePlayer();
     this.betFirst();
@@ -65,7 +63,6 @@ class Dealer {
       players: this.players,
       betMoney: this.betMoney
     };
-    // this.bet();
   }
 
   betFirst() {
@@ -74,19 +71,6 @@ class Dealer {
       this.betMoney++;
     }
   }
-
-  // bet() {
-  //   for (let i = 0; i < 3; i++) {
-  //     if (this.players[i].status === "die") continue;
-  //     if (i === 0) {
-  //       const input = prompt();
-  //       this[input](i);
-  //     } else {
-  //       const randNum = Math.floor(Math.random() * 10 + 1);
-  //       randNum <= 2 ? this.die(i) : this.call(i);
-  //     }
-  //   }
-  // }
 
   shuffle(cards) {
     let newCards = cards;
