@@ -17,8 +17,11 @@ class GameView {
     this.betView.render(betMoney);
     this.playerViewList.updatePlayer(user);
   }
+  showSelectBox() {
+    this.view.selectBoxView.show();
+  }
   bindGetAllDecision(allDecisionHandler) {
-    this.playerViewList.bindGetAllDecision = allDecisionHandler;
+    this.playerViewList.bindGetAllDecision = allDecisionHandlers;
   }
   bindListenDecision(listenHandler) {
     this.selectBoxView.$selectorBoxEl.addEventListener("SELECT", e => {
