@@ -6,6 +6,7 @@ class SelectorBoxView {
     this.validateSelector(selectorBoxEl);
     this.$selectorBoxEl = $(selectorBoxEl);
     this.bindEvents();
+    this.bridge = null;
   }
   validateSelector(selectorBoxEl) {
     validateSelector(selectorBoxEl);
