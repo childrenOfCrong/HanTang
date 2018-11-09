@@ -2,7 +2,6 @@ class PlayerViewList {
   constructor(playerList) {
     this.playerList = playerList;
     this.decisionList = new Set();
-    this.checker = null;
     this.initChecker();
   }
   initChecker() {
@@ -35,6 +34,10 @@ class PlayerViewList {
     this.decisionList.add({ userID, select });
     this.checker = this.checker.filter(v => v !== userID);
     if (!this.checkAllSet()) return this.gotoOtherDecision();
+    else return this.notifyGetAllDecision();
+  }
+  notifyGetAllDecision() {
+    this.bindGetAllDecision();
   }
   gotoOtherDecision() {
     const otherID = this.checker.shift();

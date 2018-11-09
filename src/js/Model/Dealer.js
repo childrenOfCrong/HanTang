@@ -51,11 +51,12 @@ class Dealer {
       this.players.push(new Player(i, i));
     }
   }
-  start() {
-    if (!this.players.length) this.generatePlayer();
-    this.betFirst();
-    this.shuffle(this.cards);
-
+  start(init = true) {
+    if (init) {
+      if (!this.players.length) this.generatePlayer();
+      this.betFirst();
+      this.shuffle(this.cards);
+    }
     this.handoutCards(this.cards, this.players);
 
     return {
