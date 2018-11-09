@@ -35,7 +35,6 @@ class PlayerView {
     setTimeout(() => {
       const rn = Math.random() * 10;
       const select = rn <= 2 ? "die" : "call";
-      this.showSpeechBubble(select);
       this.emit("SELECT", { select, userID: this.ID });
     }, 500);
   }
