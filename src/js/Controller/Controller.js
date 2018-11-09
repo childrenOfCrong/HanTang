@@ -5,6 +5,7 @@ class Controller {
     view.bindStart(() => this.start());
     view.bindListenDecision(e => this.listenDecision(e));
     model.bindDecision = this.updateView.bind(this);
+    view.playerViewList.bindGetAllDecision = this.notifyAllDecision.bind(this);
   }
   init() {
     console.dir(this);
@@ -12,9 +13,9 @@ class Controller {
   updateView(updateData) {
     this.view.updateView(updateData);
   }
-  start() {
+  start(init = true) {
     console.log("start!!!");
-    const startInfo = this.model.start();
+    const startInfo = this.model.start(init);
     console.log(startInfo);
     this.render(startInfo);
   }
@@ -28,6 +29,9 @@ class Controller {
   }
   render(startInfo) {
     this.view.render(startInfo);
+  }
+  notifyAllDecision() {
+    this.start(false);
   }
 }
 
