@@ -17,6 +17,9 @@ class GameView {
     this.betView.render(betMoney);
     this.playerViewList.updatePlayer(user);
   }
+  showSelectBox() {
+    this.selectBoxView.show();
+  }
   bindGetAllDecision(allDecisionHandler) {
     this.playerViewList.bindGetAllDecision = allDecisionHandler;
   }

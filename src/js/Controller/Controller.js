@@ -32,7 +32,7 @@ class Controller {
   }
   notifyAllDecision() {
     this.start(false);
-    this.view.selectBoxView.show();
+    this.view.showSelectBox();
   }
 }
 
