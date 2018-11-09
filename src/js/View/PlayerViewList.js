@@ -37,7 +37,7 @@ class PlayerViewList {
     else return this.notifyGetAllDecision();
   }
   notifyGetAllDecision() {
-    this.bindGetAllDecisions();
+    this.bindGetAllDecision();
   }
   gotoOtherDecision() {
     const otherID = this.checker.shift();
