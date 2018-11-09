@@ -31,9 +31,7 @@ class SelectorBoxView {
   }
   handleSelectorClicked({ target }) {
     if (target.nodeName !== "BUTTON") return;
-    const {
-      dataset: { select }
-    } = target;
+    const { dataset: { select } } = target;
     const selectData = { select, userID: 0 };
     this.notifySelect(selectData);
     this.hide();

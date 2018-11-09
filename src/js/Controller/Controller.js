@@ -20,8 +20,8 @@ class Controller {
   }
   listenDecision({ detail }) {
     console.log("event Listen");
-    this.view.addDecision(detail);
     this.notifyDecision(detail);
+    this.view.addDecision(detail);
   }
   notifyDecision(decision) {
     this.model.takeDecision(decision);
