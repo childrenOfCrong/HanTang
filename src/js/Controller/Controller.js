@@ -11,6 +11,8 @@ class Controller {
     console.dir(this);
   }
   updateView(updateData) {
+    this.betView()
+
     console.log(updateData);
   }
   start() {
@@ -28,9 +30,6 @@ class Controller {
   }
   render(startInfo) {
     this.view.render(startInfo);
-  }
-  notifyAllDecisionSet(allDesicionList) {
-    this.model.takeDecision(allDesicionList);
   }
 }
 
