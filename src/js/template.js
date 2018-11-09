@@ -17,5 +17,4 @@ export const playerCardTemplate = list =>
   </li>`),
     ``
   );
-
 export const winnerTemplate = winner => `<div class="winner">Winner is ${winner}</div>`;
