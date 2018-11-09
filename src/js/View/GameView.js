@@ -16,8 +16,6 @@ class GameView {
   updateView({ betMoney, user }) {
     this.betView.render(betMoney);
     this.playerViewList.updatePlayer(user);
-    //  betMoney: 4
-    //user: Player {id: 0, profile: 0, cardSet: Array(1),
   }
   bindListenDecision(listenHandler) {
     this.selectBoxView.$selectorBoxEl.addEventListener("SELECT", e => {

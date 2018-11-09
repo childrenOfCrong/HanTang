@@ -41,7 +41,6 @@ class Dealer {
     this.bindDecision = null;
   }
   takeDecision(decision) {
-    debugger;
     console.log("model", decision);
     const { select, userID } = decision;
 
