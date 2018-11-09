@@ -2,6 +2,11 @@ class PlayerViewList {
   constructor(playerList) {
     this.playerList = playerList;
     this.decisionList = new Set();
+    this.checker = null;
+    this.initChecker();
+  }
+  initChecker() {
+    this.checker = [...new Array(this.playerList.length).keys()];
   }
   updatePlayer(user) {
     const targetPlayer = this.findUser(user.id);
@@ -28,15 +33,14 @@ class PlayerViewList {
     const { select, userID } = decision;
     this.decisionList.add({ userID, select });
     console.dir(this.decisionList);
-    if (!this.checkAllSet()) return this.gotoOtherDecision(userID);
+    this.checker = this.checker.filter(v => v !== userID);
+    if (!this.checkAllSet()) return this.gotoOtherDecision();
+    // if (!this.checkAllSet()) return this.gotoOtherDecision(userID);
   }
-  gotoOtherDecision(userID) {
-    console.log(userID);
-    const others = [...this.playerList].filter(playerView => playerView.ID !== userID);
-    console.log(others);
-    others.forEach(player => {
-      player.setDecision();
-    });
+  gotoOtherDecision() {
+    const otherID = this.checker.shift();
+    const player = this.findUser(otherID);
+    player.setDecision();
   }
   checkAllSet() {
     return this.decisionList.size === 3;
