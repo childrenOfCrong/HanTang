@@ -7,7 +7,6 @@ class PlayerViewList {
     const targetPlayer = this.findUser(user.id);
     targetPlayer.render(user);
     targetPlayer.setCardBackground(user.cardSet);
-    console.dir(this);
   }
   render(players) {
     // Issue 어떻게 맞추면 좋을까? 객체이면 더 좋지 않을까?
@@ -25,16 +24,11 @@ class PlayerViewList {
     user.showSpeechBubble(select);
   }
   addDecision(decision) {
+    console.log(decision);
     const { select, userID } = decision;
     this.decisionList.add({ userID, select });
     console.dir(this.decisionList);
-    if (this.isFirst()) return this.gotoOtherDecision(userID);
-    else {
-      this.checkAllSet();
-    }
-  }
-  isFirst() {
-    return this.decisionList.size === 1;
+    if (!this.checkAllSet()) return this.gotoOtherDecision(userID);
   }
   gotoOtherDecision(userID) {
     console.log(userID);
@@ -45,13 +39,7 @@ class PlayerViewList {
     });
   }
   checkAllSet() {
-    if (this.decisionList.size === 3) {
-      const decisionList = [...this.decisionList];
-      console.dir(decisionList);
-      this.notifyAllDecisionSet(decisionList);
-      this.decisionList.clear();
-      console.dir(this.decisionList);
-    }
+    return this.decisionList.size === 3;
   }
 }
 

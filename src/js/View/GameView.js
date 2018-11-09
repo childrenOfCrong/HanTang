@@ -7,6 +7,9 @@ class GameView {
   constructor({ startBtn, betView, selectBoxView, playerViewList }) {
     Object.assign(this, { startBtn, betView, selectBoxView, playerViewList });
   }
+  addDecision(detail) {
+    this.playerViewList.addDecision(detail);
+  }
   bindStart(startHandler) {
     this.startBtn.start([() => this.selectBoxView.show(), startHandler]);
   }
@@ -33,7 +36,7 @@ class GameView {
     // this.playerView.betMoney()
     this.betView.render(betMoney);
   }
-  notifyDecision(decision) {
+  notifyDecision({ decision }) {
     console.log("decision", decision);
     this.playerViewList.addDecision(decision);
   }
