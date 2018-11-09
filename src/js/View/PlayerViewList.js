@@ -30,12 +30,10 @@ class PlayerViewList {
   }
   addDecision(decision) {
     console.log(decision);
-    const { select, userID } = decision;
+    let { select, userID } = decision;
     this.decisionList.add({ userID, select });
     console.dir(this.decisionList);
-    this.checker = this.checker.filter(v => v !== userID);
-    if (!this.checkAllSet()) return this.gotoOtherDecision();
-    // if (!this.checkAllSet()) return this.gotoOtherDecision(userID);
+    if (!this.checkAllSet()) return this.gotoOtherDecision(++userID);
   }
   gotoOtherDecision() {
     const otherID = this.checker.shift();
