@@ -5,7 +5,7 @@ class Controller {
     view.bindStart(() => this.start());
     view.bindListenDecision(e => this.listenDecision(e));
     model.bindDecision = this.updateView.bind(this);
-    view.playerViewList.bindGetAllDecision = this.notifyAllDecision.bind(this);
+    view.bindGetAllDecision(() => this.notifyAllDecision());
   }
   init() {
     console.dir(this);
@@ -32,6 +32,7 @@ class Controller {
   }
   notifyAllDecision() {
     this.start(false);
+    this.view.selectBoxView.show();
   }
 }
 

@@ -3,6 +3,7 @@ class PlayerViewList {
     this.playerList = playerList;
     this.decisionList = new Set();
     this.initChecker();
+    this.bindGetAllDecision = null;
   }
   initChecker() {
     this.checker = [...new Array(this.playerList.length).keys()];
