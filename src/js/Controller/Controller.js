@@ -20,6 +20,7 @@ class Controller {
   }
   listenDecision({ detail }) {
     console.log("event Listen");
+    debugger;
     this.view.addDecision(detail);
     this.notifyDecision(detail);
   }
