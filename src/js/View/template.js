@@ -14,7 +14,10 @@ export const playerTemplate = ({ id, cardSet, profile, gameResult, money, score,
     <div class="cardSet">
       ${cardSetTemplate(cardSet, id)}
     </div>
-    <div class="score"></div>
+    <div class="score hide">${scoreTemplate(score)}</div>
+    <div class="speechBubbleBox">
+      ${speechBubbleTemplate(status)}
+    </div>
   </div>
 `;
 
@@ -22,7 +25,7 @@ const cardSetTemplate = (list, userId) =>
   list.reduce(
     (ac, { id, img }) =>
       (ac += `<div>
-      <img src="${setCardImg(img, userId)}" class="card">
+      <img src="${setCardImg(img, userId)}" class="${setCardClass(userId)}">
       <span class="cardId">${id}</span>
       </img>
     </div>`),
@@ -30,8 +33,8 @@ const cardSetTemplate = (list, userId) =>
   );
 const setCardImg = (img, userId) => (userId === 0 ? img : backSide);
 
-export const speechBubbleTemplate = select => `
-<div class="speechBubbleBox">
-  <span class="${select}">${select.toUpperCase()}</span>
-</div>
-`;
+const setCardClass = userId => (userId === 0 ? "card" : "card back");
+
+export const speechBubbleTemplate = select => (select ? `<span class="${select}">${select.toUpperCase()}</span>` : ``);
+
+const scoreTemplate = score => (score ? score.text : ``);

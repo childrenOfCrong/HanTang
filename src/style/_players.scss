@@ -158,3 +158,21 @@
   top: 0;
   left: 0;
 }
+
+.card.back {
+  z-index: 100;
+}
+
+.score {
+  width: 14rem;
+  height: 3rem;
+  position: absolute;
+  bottom: -3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  background: #000;
+  color: #fff;
+  margin-bottom: 1rem;
+}

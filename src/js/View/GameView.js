@@ -24,15 +24,12 @@ class GameView {
     this.playerViewList.bindGetAllDecision = allDecisionHandler;
   }
   bindListenDecision(listenHandler) {
-    this.selectBoxView.$selectorBoxEl.addEventListener("SELECT", e => {
-      listenHandler(e);
-      this.playerViewList.showUserSpeechBubble(e);
-    });
-    [...this.playerViewList.playerList].forEach(player =>
-      player.$playerEl.addEventListener("SELECT", e => {
-        listenHandler(e);
-      })
-    );
+    this.selectBoxView.$selectorBoxEl.addEventListener("SELECT", e => listenHandler(e)),
+      [...this.playerViewList.playerList].forEach(player =>
+        player.$playerEl.addEventListener("SELECT", e => {
+          listenHandler(e);
+        })
+      );
   }
   render({ betMoney, players }) {
     this.playerViewList.render(players);

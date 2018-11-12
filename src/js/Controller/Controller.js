@@ -8,9 +8,6 @@ class Controller {
     // view.playerViewList.bind
     view.bindGetAllDecision(() => this.notifyAllDecision());
   }
-  init() {
-    console.dir(this);
-  }
   updateView(updateData) {
     this.view.updateView(updateData);
   }
