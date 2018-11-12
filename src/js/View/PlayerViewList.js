@@ -9,9 +9,8 @@ class PlayerViewList {
     this.checker = [...new Array(this.playerList.length).keys()];
   }
   updatePlayer(user) {
-    debugger;
     const targetPlayer = this.findUser(user.id);
-    targetPlayer.renderTemplate(user);
+    targetPlayer.render(user);
 
     // targetPlayer.updateView(user);
   }
@@ -19,7 +18,7 @@ class PlayerViewList {
     // Issue 어떻게 맞추면 좋을까? 객체이면 더 좋지 않을까?
 
     players.forEach((playerInfo, i) => {
-      this.playerList[i].renderTemplate(playerInfo);
+      this.playerList[i].render(playerInfo);
     });
   }
   findUser(ID = 0) {

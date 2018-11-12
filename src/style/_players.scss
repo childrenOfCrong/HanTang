@@ -16,6 +16,9 @@
 .cardSet {
   display: flex;
   font-size: 2rem;
+  & div {
+    position: relative;
+  }
 }
 .scoreBox {
   display: flex;
@@ -46,6 +49,7 @@
     background-size: cover;
   }
 }
+//  avatar mix in
 
 .player-2 {
   top: 50%;
@@ -122,6 +126,7 @@
   width: 7rem;
   height: 11.5rem;
   position: relative;
+  margin-right: 0.5rem;
   &::before {
     content: "";
     display: block;
@@ -132,12 +137,13 @@
     position: absolute;
     z-index: 1000;
   }
-}
-.back {
-  &::before {
-    transform: rotateY(0deg);
+  &.back {
+    &::before {
+      transform: rotateY(0deg);
+    }
   }
 }
+
 .cardId {
   display: flex;
   justify-content: center;

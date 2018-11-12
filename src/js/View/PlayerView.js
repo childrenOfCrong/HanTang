@@ -6,23 +6,9 @@ class PlayerView {
     this.$playerEl = $(playerEl);
     this.ID = ID;
   }
-  //나중에 renderMethods로 통합 예정 
-  renderTemplate(playerInfo){
-    this.render(playerInfo);
-    this.setCardBackground(playerInfo.cardSet);
-  }
+  //나중에 renderMethods로 통합 예정
   render(playerInfo) {
     this.$playerEl.innerHTML = playerTemplate(playerInfo);
-  }
-  setCardBackground(cardSet) {
-    const cardELList = [...$All(".card", this.$playerEl)];
-    if (this.ID !== 0) {
-      cardELList.forEach(el => el.classList.add("back"));
-    }
-    cardSet.forEach((el, i) => {
-      cardELList[i].style.background = `url(${el.img}) no-repeat 50% 50%`;
-      cardELList[i].style.backgroundSize = "cover";
-    });
   }
   emit(event, data) {
     const evt = new CustomEvent(event, { detail: data });
@@ -36,10 +22,10 @@ class PlayerView {
   handleUserSelect() {
     console.log("user");
   }
-  updateView({ status }) {
-    // if(status==='die') return ; 
-    // if
-    // // {id: 1, profile: 1, cardSet: Array(1), money: 8, status: "call", …}
+  updateView({ status, ...playerInfo }) {
+    if (status === "die") return;
+    const { id, cardSet, money } = playerInfo;
+    console.log(id, cardSet, money);
   }
   handlePcSelect() {
     setTimeout(() => {
