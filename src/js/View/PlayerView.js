@@ -6,6 +6,11 @@ class PlayerView {
     this.$playerEl = $(playerEl);
     this.ID = ID;
   }
+  //나중에 renderMethods로 통합 예정 
+  renderTemplate(playerInfo){
+    this.render(playerInfo);
+    this.setCardBackground(playerInfo.cardSet);
+  }
   render(playerInfo) {
     this.$playerEl.innerHTML = playerTemplate(playerInfo);
   }
@@ -31,10 +36,16 @@ class PlayerView {
   handleUserSelect() {
     console.log("user");
   }
+  updateView({ status }) {
+    // if(status==='die') return ; 
+    // if
+    // // {id: 1, profile: 1, cardSet: Array(1), money: 8, status: "call", …}
+  }
   handlePcSelect() {
     setTimeout(() => {
       const rn = Math.random() * 10;
       const select = rn <= 2 ? "die" : "call";
+      this.showSpeechBubble(select);
       this.emit("SELECT", { select, userID: this.ID });
     }, 500);
   }
@@ -42,6 +53,7 @@ class PlayerView {
     return this.ID === 0;
   }
   showSpeechBubble(select) {
+    debugger;
     const speechTemplate = speechBubbleTemplate(select);
     this.$playerEl.insertAdjacentHTML("beforeend", speechTemplate);
   }
