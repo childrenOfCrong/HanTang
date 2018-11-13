@@ -11,14 +11,14 @@ class PlayerViewList {
   updatePlayer(user) {
     const targetPlayer = this.findUser(user.id);
     targetPlayer.render(user);
-    targetPlayer.setCardBackground(user.cardSet);
+
+    // targetPlayer.updateView(user);
   }
   render(players) {
     // Issue 어떻게 맞추면 좋을까? 객체이면 더 좋지 않을까?
 
     players.forEach((playerInfo, i) => {
       this.playerList[i].render(playerInfo);
-      this.playerList[i].setCardBackground(playerInfo.cardSet);
     });
   }
   findUser(ID = 0) {
@@ -37,7 +37,9 @@ class PlayerViewList {
     else return this.notifyGetAllDecision();
   }
   notifyGetAllDecision() {
-    this.bindGetAllDecision();
+    setTimeout(() => {
+      this.bindGetAllDecision();
+    }, 1000);
   }
   gotoOtherDecision() {
     const otherID = this.checker.shift();

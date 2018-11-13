@@ -5,10 +5,8 @@ class Controller {
     view.bindStart(() => this.start());
     view.bindListenDecision(e => this.listenDecision(e));
     model.bindDecision = this.updateView.bind(this);
+    // view.playerViewList.bind
     view.bindGetAllDecision(() => this.notifyAllDecision());
-  }
-  init() {
-    console.dir(this);
   }
   updateView(updateData) {
     this.view.updateView(updateData);

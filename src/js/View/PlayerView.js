@@ -6,18 +6,16 @@ class PlayerView {
     this.$playerEl = $(playerEl);
     this.ID = ID;
   }
+
   render(playerInfo) {
     this.$playerEl.innerHTML = playerTemplate(playerInfo);
+    const { score, id } = playerInfo;
+    if (score) return this.handleScore(id);
   }
-  setCardBackground(cardSet) {
-    const cardELList = [...$All(".card", this.$playerEl)];
-    if (this.ID !== 0) {
-      cardELList.forEach(el => el.classList.add("back"));
-    }
-    cardSet.forEach((el, i) => {
-      cardELList[i].style.background = `url(${el.img}) no-repeat 50% 50%`;
-      cardELList[i].style.backgroundSize = "cover";
-    });
+  handleScore(id) {
+    if (id !== 0) return;
+    const $oscreEl = $(".score");
+    $oscreEl.classList.remove("hide");
   }
   emit(event, data) {
     const evt = new CustomEvent(event, { detail: data });
@@ -31,6 +29,7 @@ class PlayerView {
   handleUserSelect() {
     console.log("user");
   }
+
   handlePcSelect() {
     setTimeout(() => {
       const rn = Math.random() * 10;
@@ -40,10 +39,6 @@ class PlayerView {
   }
   checkUser() {
     return this.ID === 0;
-  }
-  showSpeechBubble(select) {
-    const speechTemplate = speechBubbleTemplate(select);
-    this.$playerEl.insertAdjacentHTML("beforeend", speechTemplate);
   }
   notifySelect() {
     this.emit("SELECT");
