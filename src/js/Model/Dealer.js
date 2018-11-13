@@ -58,7 +58,7 @@ class Dealer {
       this.shuffle(this.cards);
     }
     this.handoutCards(this.cards, this.players);
-
+    this.getScore();
     return {
       players: this.players,
       betMoney: this.betMoney
