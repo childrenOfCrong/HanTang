@@ -1,3 +1,4 @@
+@import "_color";
 .players {
   display: flex;
 }
@@ -135,7 +136,7 @@
     display: block;
     width: 7rem;
     height: 11.5rem;
-    background: red;
+    background: $color-card-back;
     transform: rotateY(90deg);
     position: absolute;
     z-index: 1000;

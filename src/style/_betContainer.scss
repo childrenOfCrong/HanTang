@@ -1,4 +1,4 @@
-@import "color";
+@import "_color";
 .perspectiveContainer {
   position: absolute;
   top: 50%;
@@ -67,8 +67,6 @@
   min-height: 6rem;
   .money {
     position: absolute;
-    background: url("../assets/icons/coin.png") no-repeat;
-    background-size: cover;
     width: 4rem;
     height: 4rem;
     margin-bottom: 2rem;

@@ -7,6 +7,7 @@ class PlayerViewList {
   }
   initChecker() {
     this.checker = [...new Array(this.playerList.length).keys()];
+    console.log(this.checker);
   }
   updatePlayer(user) {
     const targetPlayer = this.findUser(user.id);
