@@ -1,5 +1,3 @@
-const backSide = `../src/assets/images/backSide.jpg`;
-
 export const playerTemplate = ({ id, cardSet, profile, gameResult, money, score, status }) =>
   `
  <div class="userInfo">
@@ -24,14 +22,13 @@ export const playerTemplate = ({ id, cardSet, profile, gameResult, money, score,
 const cardSetTemplate = (list, userId) =>
   list.reduce(
     (ac, { id, img }) =>
-      (ac += `<div>
-      <img src="${setCardImg(img, userId)}" class="${setCardClass(userId)}">
+      (ac += `<div class="${setCardClass(userId)}">
+      <img src="${setCardImg(img, userId)}"  />
       <span class="cardId">${id}</span>
-      </img>
     </div>`),
     ``
   );
-const setCardImg = (img, userId) => (userId === 0 ? img : backSide);
+const setCardImg = (img, userId) => (userId === 0 ? img : ``);
 
 const setCardClass = userId => (userId === 0 ? "card" : "card back");
 

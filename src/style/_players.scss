@@ -75,7 +75,7 @@
     height: 4rem;
   }
   .moneyPicture {
-    background: url("../assets/icons/coin.png") no-repeat;
+    background: url(../assets/icons/coin.png) no-repeat;
     background-size: cover;
     width: 2.5rem;
     height: 2.5rem;
@@ -127,7 +127,10 @@
   width: 7rem;
   height: 11.5rem;
   position: relative;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
+  img {
+    max-width: 100%;
+  }
   &::before {
     content: "";
     display: block;
@@ -165,7 +168,7 @@
 }
 
 .score {
-  width: 14rem;
+  width: 15rem;
   height: 3rem;
   position: absolute;
   bottom: -3rem;
